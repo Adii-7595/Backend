@@ -43,3 +43,6 @@ console.log(phal.banana); */
 import {sum,PI} from "./math.js";
 console.log(sum(5,10))
 console.log(PI)
+
+import {generate} from "random-words"
+console.log(generate())
