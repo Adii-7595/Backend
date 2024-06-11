@@ -18,6 +18,8 @@ console.log(math.PI)
 console.log(math.g)
 
 
+const phal = require("./fruits")
+console.log(phal)
 
 
 
