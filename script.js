@@ -16,3 +16,13 @@ console.log(math.sub(5,5))
 console.log(math.mul(5,5))
 console.log(math.PI)
 console.log(math.g)
+
+const phal = require("./Fruits")
+console.log(phal)
+
+
+
+// console.log(phal.apple);
+// console.log(phal.mango);
+// console.log(phal.orange);
+// console.log(phal.banana);
