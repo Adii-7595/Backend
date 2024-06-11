@@ -17,8 +17,7 @@ console.log(math.mul(5,5))
 console.log(math.PI)
 console.log(math.g)
 
-const phal = require("./Fruits")
-console.log(phal)
+
 
 
 
