@@ -30,3 +30,30 @@ app.listen(port,()=>{
 ports are the logical endpoints of a network connection that is used to exchange information between web server and wev client.
 
 
+# request to server
+
+# app.use
+app.use((req,res)=>{
+    console.log("new incoming request");
+});
+
+# response to request
+
+all requests are text based but express
+converts it to request object and this is known as parsing
+
+# Routing
+it is a process of selecting a path for traffic in a network or between or across multiple networks
+
+app.get("/appple",(req,res) => {
+    res.send({
+        name:"apple",
+        color:"red"
+    });
+
+});
+
+# Nodemon
+To automatically restart server with code changes.
+
+# Path Parameters
