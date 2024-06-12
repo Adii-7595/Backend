@@ -1,0 +1,14 @@
+{
+  "name": "o-express",
+  "version": "1.0.0",
+  "description": "a library is a collection of pre-written code that can be used to perform specific task\r  ex - axios\r # framework :- \r a framework is a set of pre-written code that provides\r a structure for developing software application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "aditya",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
