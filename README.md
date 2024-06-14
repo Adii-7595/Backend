@@ -41,10 +41,10 @@ Ports are the logical endpoints of a network connection that are used to exchang
 
 ### app.use
 
-```javascript
+javascript
 app.use((req, res) => {
     console.log("New incoming request");
-}); ```
+}); 
 
 
 # response to request
@@ -77,10 +77,10 @@ Routing is the process of selecting a path for traffic in a network or between o
 
 ### Example of Routing in Express
 
-```javascript
+javascript
 app.get("/apple", (req, res) => {
     res.send({
         name: "apple",
         color: "red"
     });
-});```
+});
