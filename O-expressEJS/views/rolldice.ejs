@@ -7,8 +7,12 @@
 </head>
 <body>
     <h1>
-        Dice gave value: <%=Math.floor(Math.random()*6+1 )%>
+        Dice gave value: <%=diceValue%>
     </h1>
-    
+    <% if(diceValue == 6){ %>
+        <h2>Nice Shot!, Roll dice again!</h2>
+    <% } %>
 </body>
 </html>
+
+

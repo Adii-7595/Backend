@@ -34,6 +34,17 @@ app.listen(port,()=>{
 //pasing data to ejs:
 app.get("/rolldice",(req,res)=>{
     let diceValue = Math.floor(Math.random()*6+1)
-   res.render("rolldice.ejs") 
+   res.render("rolldice.ejs",{diceValue}) // {dicevalue:diceValue} , {key:value} 
 
 });
+
+
+//Instagram EJS
+// create a basic templte for instagram page based on following routes 
+
+app.get("/ig/:username",(req,res)=>{
+    const follower =['adi','sonal','raghu','abhi','mg','aman'];
+    let {username} =req.params;
+    res.render("instagram.ejs",{username,follower})
+});
+
