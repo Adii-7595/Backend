@@ -6,8 +6,16 @@
 const express = require("express")
 const app = express();
 const port = 3000
+//static files
+
 
 const path = require("path")
+
+// app.use(express.static("public"));
+
+// app.use(express.static(path.join(__dirname, "/public")))
+app.use(express.static(path.join(__dirname, "/public/css")))
+app.use(express.static(path.join(__dirname, "/public/js")))
 // using ejs
 app.set("view engine", "ejs");
 
@@ -57,4 +65,8 @@ app.get("/ig/:username", (req, res) => {
     }
   
 });
+
+
+
+
 
