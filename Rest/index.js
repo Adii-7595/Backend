@@ -90,6 +90,13 @@ app.get("/posts/:id/edit",(req,res)=>{
 
 
 });
+
+app.delete("/posts/:id",(req,res)=>{
+    let { id } = req.params;
+    posts = posts.filter((p)=> id !== p.id);
+    res.redirect("/posts");
+    
+});
 app.listen(port, () => {
     console.log(`listening on port ${port}`);
 });
