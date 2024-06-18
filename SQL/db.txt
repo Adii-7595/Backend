@@ -1,0 +1,28 @@
+what is database ?
+- it is a collection of data in a format that can be easily accessed
+
+why db?
+- 1.can store large data
+  2.features like security,scalability,etc
+  3. easier to inserr,update or delete , etc
+
+DBMS ?
+- it is an additional layer above database which is used to organise data in database and handles all the queries for 
+  updation and retrieval of data from db.
+
+SQL Vs NOSQL ?
+- SQL : Relational db(tabular) 
+ 1. MYSQL, Oracle, PostgreSQL,etc
+
+- NOSQL: non relational db > documents(key:val,graph,etc)
+  1. MONGOdb, cassandra,Neo4j,etc, collection of db.
+
+sql :- it is a programming language used to interact with relational db.
+      it is a query language used to interact with relational db.
+
+what is a table ?
+- collection of row and column in a database.
+- where column categorized the schema(design of the table) like id, name ,email, etc
+- Row categorized the user distinctly with n numbers and also knwon as tuple(i.e single row)
+
+
