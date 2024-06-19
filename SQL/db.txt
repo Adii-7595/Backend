@@ -26,3 +26,4 @@ what is a table ?
 - Row categorized the user distinctly with n numbers and also knwon as tuple(i.e single row)
 
 
+Query
