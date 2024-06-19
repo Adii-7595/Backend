@@ -25,5 +25,67 @@ what is a table ?
 - where column categorized the schema(design of the table) like id, name ,email, etc
 - Row categorized the user distinctly with n numbers and also knwon as tuple(i.e single row)
 
+Table queries:
+create insert update alter truncate delete
 
-Query
+-create table table_name(col_name,datatype,......);
+-create databse database_name;
+-show databases;
+-drop database db_name;
+-use db_name;
+-create database if not exists db_name;
+
+
+Constraint,
+
+Not Null - columns cannot have a null value
+unique - all values in column are different
+default - set the default value of the column
+check - it can limit the values allowed in a column 
+        syntax constraint check(condition1 and condition2...)
+
+key constraints: special columns in the table
+
+Primary key - makes a column unique and not null but used only for one in a table.
+              syntax create table tempo(id int not null,primary key(id));
+            
+            - it is a column or set of columns in a table that uniquely identifies each row in a table.
+      
+Foreign key - prevent action that would destroy link between the tables.
+              syntax create table tempoo(cust_id int,name,purchase, foreign key(cust_id) references temp(id));
+
+            - a foreign key is a column or set of column in a table that refers to  the primary key in a table and 
+              reference to another table as a foreign key .
+            
+            - FK can have duplicates and null values
+
+            - There can be multiple foreign key in a table.
+
+
+select command: 
+
+- select col1,col2,.. from table_name;
+- select * from table_name; (show all the data of the table)
+- select distinct age from table_name;(return tuple of same values as one)
+
+
+where clause : to efine some conditions
+
+- select col1, col2, from table_name where condition;
+operators in where :
+
+- arithmetic operators : + - * / %
+- comparison operator : = != > < >= <=
+- logical operators : AND, OR, NOT, IN, BETWEEN, ALL, LIKE, ANY
+- bitwise : &, |
+
+
+
+-
+
+
+
+
+
+            
+
