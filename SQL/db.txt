@@ -397,3 +397,81 @@ mysql> select * from user;
 +-----+------+---------------+------------------+-----------+-----------+
 
 
+DELETE : to delete existing rows.
+
+- syntax  delete from tb_name where condition;
+
+- delete from user where age =23; (delete ony met condition rows)
+
+- delete from user; (it deletes total tuple of the table)
+
+ALTER : to change the schema i.e columns
+
+Add column
+- syntax alter table tb_name add column col_name datatype;
+
+mysql> alter table user add column city varchar(50) default 'UP';
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from user;
++-----+------+---------------+-----------------+-----------+-----------+------+
+| ID  | age  | NAME          | email           | Followers | FOLLOWING | city |
++-----+------+---------------+-----------------+-----------+-----------+------+
+| 100 |   18 | Aditya Gupta  | adi@gmail.com   |      1000 |       100 | UP   |
+| 101 |   17 | Sonal Tiwari  | sona@gmail.com  |       300 |       100 | UP   |
+| 102 |   18 | Raghu Gupta   | raghu@gmail.com |       300 |       100 | UP   |
+| 103 |   19 | Abhi Kushwaha | abhi@gmail.com  |       300 |       100 | UP   |
+| 104 |   19 | MG Gupta      | mg@gmail.com    |       300 |       100 | UP   |
+| 105 |   20 | Priya Singh   | priya@gmail.com |       200 |       150 | UP   |
+| 106 |   21 | Rohan Mehta   | rohan@gmail.com |       350 |       250 | UP   |
+| 107 |   18 | Aisha Khan    | aisha@gmail.com |       220 |       180 | UP   |
+| 108 |   22 | Vikas Sharma  | vikas@gmail.com |       180 |       130 | UP   |
+| 109 |   20 | Sneha Patel   | sneha@gmail.com |       260 |       210 | UP   |
+| 110 |   21 | Aman Verma    | aman@gmail.com  |       320 |       270 | UP   |
+| 111 |   19 | Kiran Rao     | kiran@gmail.com |       400 |       300 | UP   |
+| 113 |   24 | Reema Das     | reema@gmail.com |       150 |       100 | UP   |
+| 114 |   18 | Arjun Kapoor  | arjun@gmail.com |       370 |       320 | UP   |
++-----+------+---------------+-----------------+-----------+-----------+------+
+
+
+Drop column 
+-syntax alter table tb_name drop column col_name;
+
+mysql> alter table user drop column city;
+mysql> select * from user;
++-----+------+---------------+-----------------+-----------+-----------+
+| ID  | age  | NAME          | email           | Followers | FOLLOWING |
++-----+------+---------------+-----------------+-----------+-----------+
+| 100 |   18 | Aditya Gupta  | adi@gmail.com   |      1000 |       100 |
+| 101 |   17 | Sonal Tiwari  | sona@gmail.com  |       300 |       100 |
+| 102 |   18 | Raghu Gupta   | raghu@gmail.com |       300 |       100 |
+| 103 |   19 | Abhi Kushwaha | abhi@gmail.com  |       300 |       100 |
+| 104 |   19 | MG Gupta      | mg@gmail.com    |       300 |       100 |
+| 105 |   20 | Priya Singh   | priya@gmail.com |       200 |       150 |
+| 106 |   21 | Rohan Mehta   | rohan@gmail.com |       350 |       250 |
+| 107 |   18 | Aisha Khan    | aisha@gmail.com |       220 |       180 |
+| 108 |   22 | Vikas Sharma  | vikas@gmail.com |       180 |       130 |
+| 109 |   20 | Sneha Patel   | sneha@gmail.com |       260 |       210 |
+| 110 |   21 | Aman Verma    | aman@gmail.com  |       320 |       270 |
+| 111 |   19 | Kiran Rao     | kiran@gmail.com |       400 |       300 |
+| 113 |   24 | Reema Das     | reema@gmail.com |       150 |       100 |
+| 114 |   18 | Arjun Kapoor  | arjun@gmail.com |       370 |       320 |
++-----+------+---------------+-----------------+-----------+-----------+
+
+Rename table
+alter table tb_name rename to new_name;
+
+
+chnage column name
+-syntax : alter table change column old_name new_name datatype new_constraints;
+
+
+modify column(modify dattype/constraints)
+
+- syntax : alter table table_name modify col_name new data type new constraint;
+
+truncate: to delete tables data not the table like drop.
+
+- truncate table table_name;
+
