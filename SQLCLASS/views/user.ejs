@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Details of all user in the DB.</h2>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>email</th>
+        </tr>
+        <% details.forEach(user=>{ %>
+
+            <tr>
+                <td>
+                    <%=user.id%>
+                </td>
+                <td>
+                    <%=user.username%>
+                </td>
+                <td>
+                    <%=user.email%>
+                </td>
+                <td>
+                    <form action="/user/<%=user.id%>/edit" method="GET">
+                        <button>Edit</button>
+                    </form>
+                </td>
+            </tr>
+            <% }) %>
+    </table>
+</body>
+
+</html>
