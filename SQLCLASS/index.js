@@ -65,7 +65,6 @@ app.get("/user/:id/edit", (req, res) => {
         connection.query(q, (err, result) => {
             if (err) throw (err);
             let info = result[0];
-            console.log(result[0]);
             res.render("edit.ejs", { info })
         });
 
@@ -93,7 +92,7 @@ app.patch("/user/:id",(req,res)=>{
                     res.redirect("/user");
                 });
             }
-            console.log(user);
+            
            
         });
 
@@ -101,6 +100,66 @@ app.patch("/user/:id",(req,res)=>{
         res.send("Internal error! Server down")
 
     }
+});
+
+app.get("/user/:id/delete",(req,res)=>{
+    let { id } = req.params;
+    let q = `select * from user where id = '${id}'`;
+
+    try{
+        connection.query(q,(err,result) =>{
+            if (err) throw(errr);
+            let info = result[0]
+            res.render("delete.ejs",{ info })
+
+        });
+
+    }catch(err){
+        res.send("Internal server error!")
+
+    }
+    
+});
+
+app.delete("/user/:id",(req,res)=>{
+    let { id } = req.params;
+    let q = `select * from user where id ='${id}'`;
+    let {password:formPass} = req.body;
+
+    
+    try{
+        connection.query(q,(err,result)=>{
+            if (err) throw (err);
+            let user  = result[0];
+            if (formPass != user.password){
+                res.send("WRONG PASSWORD!")
+            }else{
+                let q = `delete from user where id = '${id}'`;
+                try{
+                    connection.query(q,(err,result)=>{
+                        if(err) throw (err);
+                        res.redirect("/user");
+
+                    });
+                }catch(err){
+                    res.send("Internal ERROR maafi plz!")
+
+                }
+            }
+
+        });
+
+    }catch(err){
+
+    }
+});
+
+
+app.get("/user/addNewUser",(req,res)=>{
+    
+    res.render("add.ejs")
+   
+
 });
 
 app.listen(port, () => {

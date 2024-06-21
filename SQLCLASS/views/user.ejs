@@ -22,6 +22,11 @@
             <th>ID</th>
             <th>Username</th>
             <th>email</th>
+            <th>
+                <form action="/user/addNewUser" method="GET">
+                    <button>Add New User</button>
+                </form>
+            </th>
         </tr>
         <% details.forEach(user=>{ %>
 
@@ -35,9 +40,13 @@
                 <td>
                     <%=user.email%>
                 </td>
-                <td>
+                <td style="display: flex;">
                     <form action="/user/<%=user.id%>/edit" method="GET">
                         <button>Edit</button>
+                    </form>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <form action="/user/<%=user.id%>/delete" method="GET">
+                        <button>Delete</button>
                     </form>
                 </td>
             </tr>
