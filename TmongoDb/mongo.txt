@@ -107,3 +107,56 @@ college> db.student.find({marks: {$in: [100,65]}})
 ]
 college>
 -----------------------------------------------------------------
+
+
+Update in DB:
+db.collectionupdateOne() = updates at most a single document that match a specified folter even though
+                        multiple doucments may match the specified filters.
+
+db.collection.updateOne(<filter>,<update>,<options>)
+db.collection.updateMany(<filter>,<update>,<options>)
+db.collection.replaceOne()
+
+db.student.updateOne({name:"Adi"},{$set:{name:"lolish"}})
+-----------------------------------------------------------------------
+college> db.student.updateOne({name:"Adi"},{$set:{name:"lolish"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+college>
+------------------------------------------------------------------------
+
+NESTING : db.collection.insertOne({name:"falana",Description:{age:23,salary:90000}})
+
+---------------------------------------------------------------------------------------
+college> db.student.insertOne({name:"falana",Description:{age:23,salary:90000}})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6677216fa16922c97290df04')
+}
+
+----------------------------------------------------------------------------------------
+college> db.student.find({"Description.salary":90000})
+[
+  {
+    _id: ObjectId('6677216fa16922c97290df04'),
+    name: 'falana',
+    Description: { age: 23, salary: 90000 }
+  }
+]
+college>
+----------------------------------------------------------------------------------------
+
+
+
+Delete in database: deleteOne,deleteMany
+deleteOne:- db.collection.deleteOne(<filter>,<options>)
+deleteMany:- db.collection.deleteMany(<filter>,<options>)
+
+
+db.dropDatabase()- it delete the database
+
