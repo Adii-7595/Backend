@@ -1,0 +1,109 @@
+Collections : MongoDB stores documents in colllections.
+
+Dcoument: mongo stores data in form of documents(BSON docs)
+
+
+insert in Db 
+- insertOne: db.collection.insertOne() = inserts a single document into a collections.
+-insertMany: insert multiple documents in a collection. = db.collection.insertMany(array of document) 
+- show collections 
+-db.student.insertOne{name:"adi",marks:"94"}
+-db.student.find
+
+NOTE - if acollection doesn't exist mongoDb creates a collection when you first store data for that coleection.
+----------------------------
+test> db
+test
+test> use college
+switched to db college
+college> show collections
+
+college>
+----------------------------
+
+
+FIND IN DB:
+-db.collection.find() // returns everything
+
+for specific queries 
+-db.collection.find({key:value}) //it returns a cursor
+-db.collection.findOne({key:value}) // it returns a actual document
+
+NOTE: multiple condition can be passed to find or search in find function
+
+
+-----------------------------------------------------
+college> db.student.find({marks:100})
+[
+  {
+    _id: ObjectId('66770defa16922c97290deff'),
+    name: 'Sonal',
+    marks: 100
+  }
+]
+college> db.student.insertOne({name:"Adi", marks:100})
+{
+  acknowledged: true,
+  insertedId: ObjectId('66770ffba16922c97290df03')
+}
+college> db.student.findOne({marks:100})
+{
+  _id: ObjectId('66770defa16922c97290deff'),
+  name: 'Sonal',
+  marks: 100
+}
+college>
+---------------------------------------------------------
+
+
+Query operators:
+
+comaprison------------------------------------|Logical------|Exists-----|
+> : $gt    >= : $gte     = : $eq        $in   |$and   $nor  | $Exists   |
+< : $lt    <= : $lte     ~ : $ne        $nin  |$or          | $type     |
+------------------------------------------------------------------------|
+Evaluation---------------------|Geospatial----------------|Array--------| 
+$expr          $regex   $text  |$geoIntersects $geoWithin |$all $size   |
+$jsonSchema    $mod     $where |$near          $nearSphere|$elemMatch   |
+------------------------------------------------------------------------|
+
+Bitwise-------------------|
+$bitsAllClear $bitsAllSet |    , ETC
+$bitsAnyClear $bitsAnySet |
+--------------------------|
+
+
+
+
+
+Q. find students where marks > 75
+-db.student.find({marks: {$gt:75}})
+
+Q. find students who live in delhi or mumbai.
+-db.student.find({city:{$in:['delhi','mumbai']}})
+
+Q. find students where marks > 75 or live in delhi.
+-db.student.find({$or:[{marks:{$gt:75},city:'delhi'}]})
+
+---------------------------------------------------------------
+college> db.student.find({marks: {$in: [100,65]}})
+[
+  {
+    _id: ObjectId('66770defa16922c97290deff'),
+    name: 'Sonal',
+    marks: 100
+  },
+  {
+    _id: ObjectId('66770ed5a16922c97290df00'),
+    name: 'baila',
+    marks: 65
+  },
+  { _id: ObjectId('66770f32a16922c97290df02'), name: 'mg', marks: 65 },
+  {
+    _id: ObjectId('66770ffba16922c97290df03'),
+    name: 'Adi',
+    marks: 100
+  }
+]
+college>
+-----------------------------------------------------------------
