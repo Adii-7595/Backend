@@ -120,7 +120,7 @@ app.get("/user/:id/delete",(req,res)=>{
     }
     
 });
-
+//delete user
 app.delete("/user/:id",(req,res)=>{
     let { id } = req.params;
     let q = `select * from user where id ='${id}'`;
@@ -154,12 +154,30 @@ app.delete("/user/:id",(req,res)=>{
     }
 });
 
-
-app.get("/user/addNewUser",(req,res)=>{
+//add new user 
+// app.get("/user/addNewUser",(req,res)=>{
     
-    res.render("add.ejs")
+//     res.render("add.ejs")
    
 
+// });
+app.get("/user/addNewUser", (req, res) => {
+    res.render("add.ejs");
+});
+
+app.post("/user/addNewUser", (req, res) => {
+    const { id, username, email, password } = req.body;
+
+    const sql = 'INSERT INTO user (id, username, email, password) VALUES (?, ?, ?, ?)';
+    const values = [id, username, email, password];
+
+    connection.query(sql, values, (err, result) => {
+        if (err) {
+            res.status(500).send('Error adding user: ' + err.message);
+        } else {
+            res.redirect("/user");
+        }
+    });
 });
 
 app.listen(port, () => {

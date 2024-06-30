@@ -18,19 +18,19 @@ let allChats = [
     },
     {
         from: 'abhi',
-        to: 'anchal',
+        to: 'allahabad',
         msg: 'send me time table',
         created_at: new Date()
     },
     {
         from: 'raghu',
-        to: 'monika',
+        to: 'upwala',
         msg: 'send me time table',
         created_at: new Date()
     },
     {
         from: 'mg',
-        to: 'bengalin',
+        to: 'bengal',
         msg: 'send me time table',
         created_at: new Date()
     },
